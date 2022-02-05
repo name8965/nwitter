@@ -4,10 +4,11 @@ import Auth from "../routes/Auth";
 import Home from "../routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
+import { HashRouter } from "react-router-dom/cjs/react-router-dom.min";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
   return (
-    <Router>
+    <HashRouter base="/">
       {isLoggedIn && <Navigation userObj={userObj} />}
       <Switch>
         {isLoggedIn ? (
@@ -38,7 +39,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
           </>
         )}
       </Switch>
-    </Router>
+    </HashRouter>
   );
 };
 export default AppRouter;
